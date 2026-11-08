@@ -1,0 +1,404 @@
+/* pagina inicial*/
+.textoimg{
+    background: rgba(15, 15, 15, 0.5);
+    padding: 3px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px; /* Define o arredondamento do botão */
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.menu{
+    margin-top: 55px;
+}
+.menu a{
+    color: black;
+}
+.menu a:hover{
+    color: rgb(231, 180, 85);
+}
+.topo{
+    height: 150px;
+
+}
+.foto{
+    height: 25px
+    
+}
+img.logos{
+    width: 150px;
+    margin: 0 auto !important;
+    height: 150px;
+}
+.rodape{
+    width: 100%;
+    
+}
+.img{
+    width: 1920px;
+    height: 700px;
+}
+.image-container {
+    position: relative;
+    width: 1920px; /* largura da imagem */
+    height: 700px; /* largura máxima da imagem */
+    margin: 10px auto; /* centralizar na página */
+}
+
+.btn-on-image {
+    position: absolute;
+    top: 50%; /* centralizar verticalmente */
+    left: 70%; /* centralizar horizontalmente */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* garantir que o botão esteja acima da imagem */
+    color: black;
+    background: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px; /* Define o arredondamento do botão */
+}
+.btn-on-image-centro {
+    position: absolute;
+    top: 50%; /* centralizar verticalmente */
+    left: 50%; /* centralizar horizontalmente */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* garantir que o botão esteja acima da imagem */
+    color: black;
+    background: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px; /* Define o arredondamento do botão */
+}
+.btn-on-image-centrobaixo {
+    position: absolute;
+    top: 80%; /* centralizar verticalmente */
+    left: 50%; /* centralizar horizontalmente */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* garantir que o botão esteja acima da imagem */
+    color: black;
+    background: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px; /* Define o arredondamento do botão */
+}
+.btn{
+    background-color: white;
+    color: black;
+    text-decoration: none;
+   
+    cursor: pointer;
+    border: none;
+}
+
+.btn_cadastro {
+    position: absolute;
+    top: 110%; /* centralizar verticalmente */
+    left: 48%; /* centralizar horizontalmente */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* garantir que o botão esteja acima da imagem */
+    color: white;
+    background: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px; /* Define o arredondamento do botão */
+}
+/* MEDUSA */
+#texto_img_titulo_lateral {
+    position: absolute;
+    top: 25%; /* Ajuste a posição vertical conforme necessário */
+    left: 70%; /* Centralize horizontalmente */
+    transform: translateX(-50%);
+    z-index: 2; /* Garanta que o texto esteja acima do botão */
+    font-size: 65px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+#texto_img_lateral {
+    position: absolute;
+    top: 40%; /* Ajuste a posição vertical conforme necessário */
+    left: 70%; /* Centralize horizontalmente */
+    transform: translateX(-50%);
+    z-index: 2; /* Garanta que o texto esteja acima do botão */
+    font-size: 13px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+/* ILHA */
+
+/* jungle city */
+#texto_img_titulo_centro {
+    position: absolute;
+    top: 28%; /* Ajuste a posição vertical conforme necessário */
+    left: 50%; /* Centralize horizontalmente */
+    transform: translateX(-50%);
+    z-index: 2; /* Garanta que o texto esteja acima do botão */
+    font-size: 48px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+#texto_img_centro {
+    position: absolute;
+    top: 40%; /* Ajuste a posição vertical conforme necessário */
+    left: 50%; /* Centralize horizontalmente */
+    transform: translateX(-50%);
+    z-index: 2; /* Garanta que o texto esteja acima do botão */
+    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.preta {
+    color: black;
+}
+.branca {
+    color: white;
+}
+
+/* exposição */
+
+/* jcity */
+.obras_jcity {
+    margin: 25px 0;
+    position: relative;
+    left: 35%;
+}
+.obras_jcity img {
+    width: 25%;
+    height: 25%;
+}
+
+/* medusa (caso necessário) */
+
+/* historia */
+.texthis{
+    font-family: Georgia;
+    font-size: 25px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.imghis{
+            width: 600px;
+            height: 600px;
+            
+}
+
+.title{
+    font-family: 'Times New Roman';
+    font-weight: bolder;
+    text-align: center;
+}
+
+/* acervo */
+.obras_acervo {
+    margin: 10px 0;
+}
+
+.obras_acervo img {
+    width: 350px; 
+    height: 350px;
+}
+
+.img_do_acervo {
+    width: 150px;
+    height: 350px;
+}
+
+/* cadastro */
+
+.caixa_txt {
+    width: 450px;
+    height: 50;
+}
+
+.pstn {
+    font-family: georgia;
+    position: absolute;
+    top: 25%; /* Ajuste a posição vertical conforme necessário */
+    left: 38%; /* Centralize horizontalmente */
+    
+}
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    width: 400px; /* Redimensionado para 400px */
+    height: 400px; /* Redimensionado para 400px */
+    overflow: hidden;
+    margin: auto; /* Centraliza horizontalmente */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    height: 100%; /* Garante que a altura da imagem se ajuste ao container */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%; /* Ajusta a imagem para preencher o container */
+    object-fit: cover; /* Mantém a imagem proporcional e cobre o container */
+    display: block;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+/*estilização do menu*/
+/* Estilos para o menu */
+.menu {
+    background-color: #f8f9fa; /* Cor de fundo do menu */
+    border-radius: 10px; /* Bordas arredondadas para o menu */
+    padding: 10px; /* Espaçamento interno do menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para adicionar profundidade */
+}
+
+.nav {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alinha os itens horizontalmente */
+}
+
+.nav-item {
+    margin-left: 10px; /* Espaçamento entre os itens */
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 10px; /* Espaçamento interno dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #000; /* Cor do texto dos links */
+    border-radius: 5px; /* Bordas arredondadas para os links */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.nav-link:hover {
+    background-color: black; /* Cor de fundo ao passar o mouse */
+    color: bisque; /* Cor do texto ao passar o mouse */
+}
+u{
+    background: black;
+    padding: 3px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px; /* Define o arredondamento do botão */
+    text-decoration: none;
+    color: bisque;
+}
+.desk {
+    font-family: Georgia;
+    font-size: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 75px;
+    text-align: justify;
+}
+figcaption {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+figure {
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+}
+/* Carrossel OBRAS*/
+.carousel-obras {
+    position: relative;
+    width: 30%; /* Redimensionado */
+    height: auto; /* Redimensionado */
+    overflow: hidden;
+    margin: auto; /* Centraliza horizontalmente */
+    z-index: 1;
+}
+/* Estilos para o contêiner do modal em tela cheia */
+.fullscreen-container {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed; /* Fixa o modal na tela */
+    top: 0;
+    left: 0;
+    width: 100%; /* Preenche a tela toda */
+    height: 100%; /* Preenche a tela toda */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo preto com opacidade */
+    z-index: 1000; /* Coloca o modal acima de outros conteúdos */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse a tela */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+/* Estilos para o contêiner da imagem em tela cheia */
+.fullscreen-image-container {
+    position: relative; /* Posiciona elementos dentro em relação ao contêiner */
+    width: 80%; /* Largura da imagem em tela cheia */
+    height: 80%; /* Altura da imagem em tela cheia */
+}
+
+/* Estilos para a imagem em tela cheia */
+.fullscreen-image-container img {
+    width: 100%; /* Imagem ocupa toda a largura do contêiner */
+    height: 100%; /* Imagem ocupa toda a altura do contêiner */
+    object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+/* Estilos para a legenda da imagem */
+.fullscreen-caption {
+    position: absolute; /* Posiciona a legenda sobre a imagem */
+    bottom: 10px; /* Espaço do fundo */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Corrige o alinhamento central */
+    color: white; /* Cor do texto */
+    font-size: 18px; /* Tamanho da fonte */
+    background: rgba(0, 0, 0, 0.6); /* Fundo da legenda com opacidade */
+    padding: 5px; /* Espaçamento interno */
+    border-radius: 5px; /* Borda arredondada */
+    max-width: 90%; /* Limita a largura máxima */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para os botões de navegação e fechamento */
+.close-fullscreen, .prev-fullscreen, .next-fullscreen {
+    position: absolute; /* Posiciona os botões sobre o contêiner */
+    top: 50%; /* Posiciona verticalmente no meio */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com opacidade */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda padrão */
+    cursor: pointer; /* Cursor de ponteiro */
+    padding: 10px; /* Espaçamento interno */
+    font-size: 24px; /* Tamanho da fonte */
+    z-index: 1010; /* Coloca os botões acima do conteúdo do modal */
+    transform: translateY(-50%); /* Ajusta a posição vertical para centralizar */
+}
+
+/* Estilo específico para o botão de fechar */
+.close-fullscreen {
+    right: 10px; /* Alinha à direita */
+}
+
+/* Estilo específico para o botão de navegação anterior */
+.prev-fullscreen {
+    left: 10px; /* Alinha à esquerda */
+}
+
+/* Estilo específico para o botão de navegação seguinte */
+.next-fullscreen {
+    right: 10px; /* Alinha à direita */
+}
