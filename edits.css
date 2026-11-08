@@ -1,3 +1,9 @@
+/* RESPONSIVO: base — nenhuma imagem passa da largura do contêiner */
+img {
+    max-width: 100%;
+    height: auto;
+}
+ 
 /* pagina inicial*/
 .textoimg{
     background: rgba(15, 15, 15, 0.5);
@@ -18,12 +24,13 @@
     color: rgb(231, 180, 85);
 }
 .topo{
-    height: 150px;
-
+    height: auto;          /* RESPONSIVO: era height:150px */
+    min-height: 150px;
 }
 .foto{
-    height: 25px
-    
+    height: 25px;
+    width: auto;           /* RESPONSIVO: evita distorção com o max-width global */
+    max-width: none;
 }
 img.logos{
     width: 150px;
@@ -32,19 +39,27 @@ img.logos{
 }
 .rodape{
     width: 100%;
-    
 }
-.img{
-    width: 1920px;
-    height: 700px;
-}
+ 
+/* RESPONSIVO: banners — era width:1920px; height:700px */
 .image-container {
     position: relative;
-    width: 1920px; /* largura da imagem */
-    height: 700px; /* largura máxima da imagem */
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 1920 / 700;
+    min-height: 240px;
     margin: 10px auto; /* centralizar na página */
+    overflow: hidden;
 }
-
+.image-container > img,
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* corta em vez de achatar (capa_exposicao é 16:9) */
+    object-position: center;
+    display: block;
+}
+ 
 .btn-on-image {
     position: absolute;
     top: 50%; /* centralizar verticalmente */
@@ -53,6 +68,8 @@ img.logos{
     z-index: 1; /* garantir que o botão esteja acima da imagem */
     color: black;
     background: white;
+    border: none;
+    cursor: pointer;
     padding: 10px 20px;
     text-align: center;
     display: inline-block;
@@ -86,32 +103,32 @@ img.logos{
     background-color: white;
     color: black;
     text-decoration: none;
-   
+ 
     cursor: pointer;
     border: none;
 }
-
+ 
+/* RESPONSIVO: botão do formulário (login/registro) no fluxo normal, sem absolute */
 .btn_cadastro {
-    position: absolute;
-    top: 110%; /* centralizar verticalmente */
-    left: 48%; /* centralizar horizontalmente */
-    transform: translate(-50%, -50%);
-    z-index: 1; /* garantir que o botão esteja acima da imagem */
+    position: static;
+    transform: none;
+    display: block;
+    margin: 1rem auto 0;
     color: white;
     background: black;
     padding: 10px 20px;
     text-align: center;
-    display: inline-block;
     border-radius: 10px; /* Define o arredondamento do botão */
 }
 /* MEDUSA */
+/* RESPONSIVO: fontes fluidas; no desktop (1920px) equivalem aos 65px/13px originais */
 #texto_img_titulo_lateral {
     position: absolute;
     top: 25%; /* Ajuste a posição vertical conforme necessário */
     left: 70%; /* Centralize horizontalmente */
     transform: translateX(-50%);
     z-index: 2; /* Garanta que o texto esteja acima do botão */
-    font-size: 65px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-size: clamp(2rem, 3.4vw, 4rem);
 }
 #texto_img_lateral {
     position: absolute;
@@ -119,130 +136,159 @@ img.logos{
     left: 70%; /* Centralize horizontalmente */
     transform: translateX(-50%);
     z-index: 2; /* Garanta que o texto esteja acima do botão */
-    font-size: 13px; /* Ajuste o tamanho da fonte conforme necessário */
+    width: 40%;
+    text-align: center;
+    font-size: clamp(.8rem, .7vw, .85rem);
 }
-
+ 
 /* ILHA */
-
+ 
 /* jungle city */
+/* RESPONSIVO: equivalem aos 48px/20px originais em 1920px */
 #texto_img_titulo_centro {
     position: absolute;
     top: 28%; /* Ajuste a posição vertical conforme necessário */
     left: 50%; /* Centralize horizontalmente */
     transform: translateX(-50%);
     z-index: 2; /* Garanta que o texto esteja acima do botão */
-    font-size: 48px; /* Ajuste o tamanho da fonte conforme necessário */
+    width: 90%;
+    text-align: center;
+    font-size: clamp(1.75rem, 2.5vw, 3rem);
 }
-
+ 
 #texto_img_centro {
     position: absolute;
     top: 40%; /* Ajuste a posição vertical conforme necessário */
     left: 50%; /* Centralize horizontalmente */
     transform: translateX(-50%);
     z-index: 2; /* Garanta que o texto esteja acima do botão */
-    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
+    width: 80%;
+    text-align: center;
+    font-size: clamp(.95rem, 1.04vw, 1.25rem);
 }
-
+ 
 .preta {
     color: black;
 }
 .branca {
     color: white;
 }
-
+ 
 /* exposição */
-
-/* jcity */
+ 
+/* jcity (classes sem uso nos .php atuais; mantidas, mas sem deslocamento fixo) */
 .obras_jcity {
     margin: 25px 0;
     position: relative;
-    left: 35%;
+    left: 0;
 }
 .obras_jcity img {
-    width: 25%;
-    height: 25%;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
 }
-
+ 
 /* medusa (caso necessário) */
-
+ 
 /* historia */
-.texthis{
+/* RESPONSIVO: margens de 300px -> fórmula com vw (300px em telas ≥ 1240px, 1rem em celular).
+   "body .texto" tem especificidade maior que o .texto do <style> interno de ilha.php,
+   então vale independentemente da ordem de carregamento. */
+.texthis,
+body .texto {
     font-family: Georgia;
-    font-size: 25px;
-    margin-left: 300px;
-    margin-right: 300px;
+    font-size: clamp(1rem, 1.2vw + .6rem, 1.5rem);
+    /* coluna de texto com no mínimo 640px: em 1366px as margens são as 300px originais;
+       em telas menores encolhem até 1rem (celular) */
+    margin-left: max(1rem, min(300px, calc((100vw - 640px) / 2)));
+    margin-right: max(1rem, min(300px, calc((100vw - 640px) / 2)));
 }
-
+ 
 .imghis{
-            width: 600px;
-            height: 600px;
-            
+    width: min(100%, 600px);
+    height: auto;
 }
-
+ 
 .title{
     font-family: 'Times New Roman';
     font-weight: bolder;
     text-align: center;
 }
-
-/* acervo */
+ 
+/* acervo (classes sem uso nos .php atuais — listagem.php usa cards do Bootstrap) */
 .obras_acervo {
     margin: 10px 0;
 }
-
+ 
 .obras_acervo img {
-    width: 350px; 
-    height: 350px;
+    width: min(100%, 350px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
-
+ 
 .img_do_acervo {
-    width: 150px;
-    height: 350px;
+    width: min(100%, 150px);
+    height: auto;
 }
-
-/* cadastro */
-
+ 
+/* cadastro / login */
+/* RESPONSIVO: era width:450px; height:50 (inválido, sem unidade) */
 .caixa_txt {
-    width: 450px;
-    height: 50;
+    width: 100%;
+    max-width: 450px;
+    height: 50px;
 }
-
+ 
+/* RESPONSIVO: era position:absolute; top:25%; left:38% — agora no fluxo normal.
+   (top/left do .esp em login.php/registro.php passam a ser ignorados) */
 .pstn {
     font-family: georgia;
-    position: absolute;
-    top: 25%; /* Ajuste a posição vertical conforme necessário */
-    left: 38%; /* Centralize horizontalmente */
-    
+    position: static;
+    width: 100%;
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
-
+ 
 /* Carrossel */
+/* RESPONSIVO: era 400px x 400px fixos */
 .carousel-container {
     position: relative;
-    width: 400px; /* Redimensionado para 400px */
-    height: 400px; /* Redimensionado para 400px */
+    width: min(90%, 400px);
+    height: auto;
     overflow: hidden;
     margin: auto; /* Centraliza horizontalmente */
 }
-
+ 
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
-
+ 
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
     height: 100%; /* Garante que a altura da imagem se ajuste ao container */
 }
-
+ 
 .carousel-slide img {
     width: 100%;
     height: 100%; /* Ajusta a imagem para preencher o container */
     object-fit: cover; /* Mantém a imagem proporcional e cobre o container */
     display: block;
 }
-
-button {
+ 
+/* RESPONSIVO: carrossel da história — quadrado, sem depender de altura em % */
+.carousel-container .carousel-slide img {
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+ 
+/* RESPONSIVO: era "button { ... }" global, que afetava TODOS os <button> do site
+   (inclusive os .btn de editar.php/excluir.php). Agora só as setas dos carrosséis. */
+.prev,
+.next {
     position: absolute;
     top: 50%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -253,11 +299,11 @@ button {
     z-index: 100;
     transform: translateY(-50%);
 }
-
+ 
 .prev {
     left: 10px;
 }
-
+ 
 .next {
     right: 10px;
 }
@@ -269,18 +315,19 @@ button {
     padding: 10px; /* Espaçamento interno do menu */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para adicionar profundidade */
 }
-
+ 
 .nav {
     list-style: none; /* Remove os marcadores padrão da lista */
     margin: 0;
     padding: 0;
     display: flex; /* Alinha os itens horizontalmente */
+    flex-wrap: wrap; /* RESPONSIVO: itens quebram de linha em vez de estourar a largura */
 }
-
+ 
 .nav-item {
     margin-left: 10px; /* Espaçamento entre os itens */
 }
-
+ 
 .nav-link {
     display: block;
     padding: 10px 10px; /* Espaçamento interno dos links */
@@ -289,7 +336,7 @@ button {
     border-radius: 5px; /* Bordas arredondadas para os links */
     transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
 }
-
+ 
 .nav-link:hover {
     background-color: black; /* Cor de fundo ao passar o mouse */
     color: bisque; /* Cor do texto ao passar o mouse */
@@ -303,11 +350,12 @@ u{
     text-decoration: none;
     color: bisque;
 }
+/* RESPONSIVO: margens de 120px -> clamp (≈120px em 1920px) */
 .desk {
     font-family: Georgia;
-    font-size: 20px;
-    margin-left: 120px;
-    margin-right: 120px;
+    font-size: clamp(1rem, 1vw + .6rem, 1.25rem);
+    margin-left: clamp(1rem, 6vw, 120px);
+    margin-right: clamp(1rem, 6vw, 120px);
     margin-top: 75px;
     text-align: justify;
 }
@@ -322,10 +370,12 @@ figure {
     margin: auto;
 }
 /* Carrossel OBRAS*/
+/* RESPONSIVO: 30% da tela, mas nunca menor que 280px nem maior que 560px */
 .carousel-obras {
     position: relative;
-    width: 30%; /* Redimensionado */
-    height: auto; /* Redimensionado */
+    width: clamp(280px, 30%, 560px);
+    max-width: 100%;
+    height: auto;
     overflow: hidden;
     margin: auto; /* Centraliza horizontalmente */
     z-index: 1;
@@ -344,21 +394,21 @@ figure {
     align-items: center; /* Centraliza o conteúdo verticalmente */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
 }
-
+ 
 /* Estilos para o contêiner da imagem em tela cheia */
 .fullscreen-image-container {
     position: relative; /* Posiciona elementos dentro em relação ao contêiner */
     width: 80%; /* Largura da imagem em tela cheia */
     height: 80%; /* Altura da imagem em tela cheia */
 }
-
+ 
 /* Estilos para a imagem em tela cheia */
 .fullscreen-image-container img {
     width: 100%; /* Imagem ocupa toda a largura do contêiner */
     height: 100%; /* Imagem ocupa toda a altura do contêiner */
     object-fit: contain; /* Mantém a proporção da imagem */
 }
-
+ 
 /* Estilos para a legenda da imagem */
 .fullscreen-caption {
     position: absolute; /* Posiciona a legenda sobre a imagem */
@@ -373,7 +423,7 @@ figure {
     max-width: 90%; /* Limita a largura máxima */
     text-align: center; /* Centraliza o texto */
 }
-
+ 
 /* Estilos para os botões de navegação e fechamento */
 .close-fullscreen, .prev-fullscreen, .next-fullscreen {
     position: absolute; /* Posiciona os botões sobre o contêiner */
@@ -387,18 +437,123 @@ figure {
     z-index: 1010; /* Coloca os botões acima do conteúdo do modal */
     transform: translateY(-50%); /* Ajusta a posição vertical para centralizar */
 }
-
+ 
 /* Estilo específico para o botão de fechar */
 .close-fullscreen {
     right: 10px; /* Alinha à direita */
 }
-
+ 
 /* Estilo específico para o botão de navegação anterior */
 .prev-fullscreen {
     left: 10px; /* Alinha à esquerda */
 }
-
+ 
 /* Estilo específico para o botão de navegação seguinte */
 .next-fullscreen {
     right: 10px; /* Alinha à direita */
 }
+ 
+ 
+/* =====================================================================
+   RESPONSIVO — media queries (devem ficar no FIM do arquivo, para vencer
+   as regras de #id e de classe definidas acima)
+   ===================================================================== */
+ 
+/* Abaixo de 1200px: título/subtítulo/botão sobre o banner deixam de ser
+   position:absolute em % (se sobrepõem em telas menores) e passam a fluir
+   em coluna, centralizados sobre a imagem. */
+@media (max-width: 1199.98px) {
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: .75rem;
+        aspect-ratio: auto;
+        min-height: clamp(260px, 36vw, 440px);
+        padding: 1.5rem 1rem;
+    }
+    .image-container > img {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+    #texto_img_titulo_centro,
+    #texto_img_centro,
+    #texto_img_titulo_lateral,
+    #texto_img_lateral {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 90%;
+        text-align: center;
+        z-index: 1;
+    }
+    #texto_img_titulo_centro,
+    #texto_img_titulo_lateral {
+        font-size: clamp(1.6rem, 5vw, 2.4rem);
+    }
+    #texto_img_centro,
+    #texto_img_lateral {
+        font-size: clamp(.95rem, 2.4vw, 1.15rem);
+    }
+    .image-container form {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+    }
+    .btn-on-image,
+    .btn-on-image-centro,
+    .btn-on-image-centrobaixo {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+    /* faixa de copyright (1920x40): a 25px de altura ela tem 1200px de largura.
+       Abaixo de 1200px o item ocupa a linha inteira e a imagem encolhe dentro dele. */
+    .rodape .nav-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .rodape .nav-item .col-sm-3 {
+        flex: 0 1 auto;
+        max-width: 100%;
+        min-width: 0;
+    }
+    img[src$="copyrigth.png"] {
+        max-width: 100%;
+        height: auto;
+    }
+}
+ 
+/* Tablet / celular: menu compacto e centralizado */
+@media (max-width: 767.98px) {
+    .menu {
+        margin-top: 10px;
+    }
+    .nav {
+        justify-content: center !important; /* Bootstrap usa !important em .justify-content-end */
+    }
+    .nav-item {
+        margin-left: 0;
+    }
+    .nav-link {
+        padding: 8px;
+    }
+}
+ 
+/* Celular */
+@media (max-width: 575.98px) {
+    .topo {
+        text-align: center;
+    }
+    .image-container button {
+        padding: .4rem 1rem;
+        font-size: .95rem;
+    }
+}
+ 
